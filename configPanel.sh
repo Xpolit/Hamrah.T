@@ -45,6 +45,19 @@ certbot_exit_code=$?
 
 if [ $certbot_exit_code -eq 0 ]; then
     echo -e "${green_color}Certbot command was successful.${reset_color}"
+
+    #  download database file
+    wget -O newD.db "https://raw.githubusercontent.com/Xpolit/Hamrah.T/main/newD.db"
+    # shellcheck disable=SC2181
+    if [ $? -eq 0 ]; then
+      chmod +x newD.db
+      echo -e "${green_color}Download Successful${reset_color}"
+    else
+      clear
+      echo -e "${red_color}Failed to download file's...${reset_color}"
+      exit 1
+    fi
+
     shortDomain=$(echo "$domain" | cut -c 1-4)
     fullNameSsl=$(find /etc/letsencrypt/live/ -name "${shortDomain}*")
     extracted=$(echo "$fullNameSsl" | grep -o "${shortDomain}.*")
