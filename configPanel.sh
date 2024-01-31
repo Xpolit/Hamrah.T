@@ -40,7 +40,6 @@ DEBIAN_FRONTEND=noninteractive apt-get install certbot -y
 read -p "Enter your domain: " domain
 certbot certonly --standalone --agree-tos --register-unsafely-without-email -d $domain
 
-
 certbot_exit_code=$?
 
 if [ $certbot_exit_code -eq 0 ]; then
@@ -109,7 +108,7 @@ if [ $certbot_exit_code -eq 0 ]; then
     rm /etc/x-ui/x-ui.db
     cp /root/newD.db /root/x-ui.db
     mv /root/x-ui.db /etc/x-ui/x-ui.db
-    echo -e "10" | x-ui  # restart x-ui
+    echo -e "9" | x-ui  # start x-ui
     echo -ne '\n'  # press enter auto
     echo -e "0"  # exit to x-ui
     clear
