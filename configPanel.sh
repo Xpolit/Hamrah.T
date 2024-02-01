@@ -30,7 +30,7 @@ DEBIAN_FRONTEND=noninteractive sudo apt-get install sqlite3 -y
 DEBIAN_FRONTEND=noninteractive sudo apt-get install jq -y
 
 # install panel and set default entries
-echo -e "y\nroot\n123\n2602" | bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
+echo -e "y\nroot\n123\n12345" | bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
 
 # install certbot
 DEBIAN_FRONTEND=noninteractive apt-get install certbot -y
